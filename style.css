@@ -1,0 +1,123 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: rgb(34, 34, 34);
+}
+:root {
+    --deskLeft: 0px;
+    --deskTop: 0px;
+    --ballLeft: 90px;
+    --ballTop: 200px;
+    --ballRadius: 50%;
+    --ballScale:1
+}
+.game {
+    width: 700px;
+    height: 500px;
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.75);
+}
+.desk {
+    position: absolute;
+    bottom: 20px;
+    width: 100px;
+    height: 20px;
+    background-color: aqua;
+    left: var(--deskLeft);
+    top: var(--deskTop);
+    pointer-events: none;
+}
+.ball {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--ballRadius);
+    background-color: red;
+    position: absolute;
+    top: var(--ballTop);
+    left: var(--ballLeft);
+    pointer-events: none;
+    transform: scale(var(--ballScale));
+}
+.wall {
+    width: 50px;
+    height: 10px;
+    background-color: blueviolet;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.wall.disable {
+    animation: disableAnim 0.3s;
+    opacity: 0;
+}
+.walls {
+    width: 70%;
+    height: 20px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 60px;
+    flex-wrap: wrap;
+    pointer-events: none;
+    justify-content: center;
+}
+.top-wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+.left-wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+}
+.right-wall {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+}
+.bottom-wall {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+.score {
+    position: absolute;
+    color: white;
+    left: 20px;
+    font-size: 21px;
+}
+.over {
+    font-size: 55px;
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    display: none;
+    pointer-events: none;
+}
+@keyframes disableAnim {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+}
